@@ -9,8 +9,6 @@ public class Dijkstra {
 	
 	public static double[][] distanceMatrix = new double[numberOfNodes][numberOfNodes];
 	
-	//static double[][] pathDistanceMatrix = new double[numberOfNodes][numberOfNodes];
-	
 	static double[] pathDistanceMatrix = new double[numberOfNodes];
 	
 	static boolean[] visited = new boolean[numberOfNodes];
@@ -26,8 +24,6 @@ public class Dijkstra {
 		numberOfNodes = initNumberOfNodes;
 		
 		distanceMatrix = new double[numberOfNodes][numberOfNodes];
-		
-		//static double[][] pathDistanceMatrix = new double[numberOfNodes][numberOfNodes];
 		
 		pathDistanceMatrix = new double[numberOfNodes];
 		
@@ -105,16 +101,6 @@ public class Dijkstra {
 			
 			this.previousNodes = Utilities.cloneIntArray(previousNodes);
 			
-			/*
-			previousNodes = new int[numberOfNodes];
-			
-			for(int rowCounter = 0; rowCounter < previousNodes.length; rowCounter++) {
-				
-				previousNodes[rowCounter] = -1;
-				
-			}
-			*/
-			
 			this.targetNodeIndex = targetNodeIndex;
 			
 			this.minimumDistance = minimumDistance;
@@ -138,11 +124,8 @@ public class Dijkstra {
 	
 	public static int DijkstraAlgorithm(Node node) {
 		
-		//System.out.println("Dijkstra Algorithm: " + node.nodeIndex);
-		
 		if(node.nodeIndex == node.targetNodeIndex) {
 			
-			//node.minimumPath += "" + node.targetNodeIndex;
 			return -1;
 			
 		}
@@ -207,13 +190,7 @@ public class Dijkstra {
 						
 						pathDistanceMatrix[neighborCounter] = newDistance;
 						
-						//System.out.println("Path Distance Matrix: " + pathDistanceMatrix[neighborCounter]);
-						
 						if(neighborCounter == node.targetNodeIndex) {
-							
-							//node.minimumPath += "" + node.targetNodeIndex;
-							
-							//System.out.println("Complete Path: " + node.minimumPath + " : " + node.targetNodeIndex + " Minimum Path: " + newDistance);
 							
 							CompletePath completePath = x.new CompletePath();
 							
@@ -232,7 +209,6 @@ public class Dijkstra {
 					if(!visited[neighborCounter]) {
 						
 						if(node.previousNodes[neighborCounter] == 0) {
-						//if(!Utilities.arrayContainsInt(node.previousNodes, neighborCounter)) {
 							
 							int[] nextNodePrevious = Utilities.cloneIntArray(node.previousNodes);
 							
@@ -244,7 +220,6 @@ public class Dijkstra {
 							
 							if(returnIndex >= 0) {
 								
-								//if(pathDistanceMatrix[returnIndex] < minimumNodePathDistance) {
 									
 									minimumNodePathDistance = pathDistanceMatrix[returnIndex];
 									
@@ -252,8 +227,6 @@ public class Dijkstra {
 									
 									minimumPathString = nextNode.minimumPath;
 									
-								//}
-								
 							}
 							
 						}
@@ -266,11 +239,7 @@ public class Dijkstra {
 			
 		}
 		
-		//visited[node.nodeIndex] = true;
-		
 		if(minimumNodeIndex >= 0) {
-			
-			//System.out.println("Minimum Node Index: " + minimumNodeIndex);
 			
 			node.minimumPath += minimumNodeIndex + " : " + minimumPathString;
 			
@@ -387,11 +356,7 @@ public class Dijkstra {
 			System.out.println(cp);
 			
 		}
-		
-		//System.out.println(Arrays.toString(completePathArray));
-		
-		//System.out.println("My Best Path is: " + originalNode.minimumPath);
-		
+
 	}
 
 }

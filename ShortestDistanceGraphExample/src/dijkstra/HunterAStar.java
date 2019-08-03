@@ -163,16 +163,6 @@ public class HunterAStar {
 			
 			this.previousNodes = Utilities.cloneIntArray(previousNodes);
 			
-			/*
-			previousNodes = new int[numberOfNodes];
-			
-			for(int rowCounter = 0; rowCounter < previousNodes.length; rowCounter++) {
-				
-				previousNodes[rowCounter] = -1;
-				
-			}
-			*/
-			
 			this.targetNodeIndex = targetNodeIndex;
 			
 			this.minimumDistance = minimumDistance;
@@ -233,11 +223,7 @@ public class HunterAStar {
 						
 						pathDistanceMatrix[neighborCounter] = newDistance;
 						
-						//System.out.println("Path Distance Matrix: " + pathDistanceMatrix[neighborCounter]);
-						
 						if(neighborCounter == node.targetNodeIndex) {
-							
-							//node.minimumPath += "" + node.targetNodeIndex;
 							
 							System.out.println("Complete Path: " + node.minimumPath + " : " + node.targetNodeIndex + " Minimum Path: " + newDistance);
 							
@@ -260,15 +246,12 @@ public class HunterAStar {
 					if(!visited[neighborCounter]) {
 						
 						if(node.previousNodes[neighborCounter] == 0) {
-						//if(!Utilities.arrayContainsInt(node.previousNodes, neighborCounter)) {
 							
 							int[] nextNodePrevious = Utilities.cloneIntArray(node.previousNodes);
 							
 							nextNodePrevious[node.nodeIndex] = 1;
 							
 							Node nextNode = x.new Node(neighborCounter, node.nodeIndex, node.targetNodeIndex, Double.MAX_VALUE, newDistance, node.minimumPath + " : " + neighborCounter, nextNodePrevious);
-							
-							//int returnIndex = AStarAlgorithm(nextNode);
 							
 							System.out.println("Neighbor Counter: " + neighborCounter + " F Value: " + nextNode.f(nextNode));
 							
@@ -278,16 +261,12 @@ public class HunterAStar {
 							
 							if(nextF < minimumNodePathDistance) {
 								
-								//if(pathDistanceMatrix[returnIndex] < minimumNodePathDistance) {
-									
 									minimumNodePathDistance = nextF;
 									
 									minimumNodeIndex = addedNodes;
 									
 									minimumPathString = nextNode.minimumPath;
 									
-								//}
-								
 							}
 							
 							addedNodes++;
@@ -340,11 +319,7 @@ public class HunterAStar {
 			
 		}
 		
-		//visited[node.nodeIndex] = true;
-		
 		if(minimumNodeIndex >= 0) {
-			
-			//System.out.println("Minimum Node Index: " + minimumNodeIndex);
 			
 			int returnIndex = AStarAlgorithm(neighborNodes.get(minimumNodeIndex));
 			
@@ -397,8 +372,6 @@ public class HunterAStar {
 	}
 	
 	public static void main(String[] args) {
-		
-		//distanceMatrix = Utilities.createDistanceMatrix3(distanceMatrix);
 		
 		x = new HunterAStar(25, 3, 3, null);
 		
@@ -474,10 +447,6 @@ public class HunterAStar {
 			System.out.println(cp);
 			
 		}
-		
-		//System.out.println(Arrays.toString(completePathArray));
-		
-		//System.out.println("My Best Path is: " + originalNode.minimumPath);
 		
 	}
 

@@ -23,9 +23,6 @@ import java.io.*;
 
 public class AStarExecution implements ImageObserver, MouseListener {
 
-	//int numberRows = 100;
-	//int numberColumns = 100;
-	
 	int rowHeight = 25;
 	
 	int columnWidth = 25;
@@ -383,8 +380,6 @@ public class AStarExecution implements ImageObserver, MouseListener {
 						
 						if(execution.displayGrid[rowCounter][columnCounter]) {
 							
-							//System.out.println("Red Color!");
-							
 							g.setColor(litColor);
 
 							g.fillRect(((columnCounter + 1)*execution.columnWidth), ((rowCounter + 1) * execution.rowHeight), execution.columnWidth, execution.rowHeight);
@@ -421,14 +416,10 @@ public class AStarExecution implements ImageObserver, MouseListener {
 					
 				}
 				
-				//System.out.println("Row Counter: " + rowCounter + " Column Counter: " + columnCounter);
-					
 				g.drawLine(width-execution.columnWidth, rowCounter, width - execution.columnWidth, rowCounter + execution.rowHeight);
 				
 			}
 			
-			//g.drawString("Hello World", 125, 125);
-
 		}
 		
 	}
@@ -445,22 +436,9 @@ public class AStarExecution implements ImageObserver, MouseListener {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	//int cellNumber = (rowCounter * numberColumns) + columnCounter;
 	
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
-		
-		/*
-		int columnNumber = (arg0.getX()-columnWidth) / (columnWidth);
-		
-		int rowNumber = (arg0.getY()-rowHeight) / (rowHeight);
-		
-		//System.out.println("Mouse X Location: " + arg0.getX() + " : " + columnNumber + " Mouse Y Location: " + arg0.getY() + " : " + rowNumber);
-		
-		digui.displayGrid[rowNumber][columnNumber] = !digui.displayGrid[rowNumber][columnNumber];
-		
-		mw.repaint();
-		*/
 		
 	}
 
@@ -506,8 +484,6 @@ public class AStarExecution implements ImageObserver, MouseListener {
 		
 		System.out.println("Mouse X Location: " + arg0.getX() + " : " + columnNumber + " Mouse Y Location: " + arg0.getY() + " : " + rowNumber);
 		
-		//digui.displayGrid[rowNumber][columnNumber] = !digui.displayGrid[rowNumber][columnNumber];
-		
 		int originCellNumber = (execution.playerCharacterRow * execution.numberColumns) + execution.playerCharacterColumn;
 		
 		int destinationCellNumber = (rowNumber * execution.numberColumns) + columnNumber;
@@ -523,8 +499,6 @@ public class AStarExecution implements ImageObserver, MouseListener {
 		String completePathString = completePath.toString();
 		
 		completePathString = completePathString.substring(completePathString.indexOf(":") + 1, completePathString.lastIndexOf(" Minimum Path:")).trim();
-		
-		//System.out.println(completePathString);
 		
 		String[] pathElements = completePathString.split(" : ");
 		
@@ -625,8 +599,6 @@ public class AStarExecution implements ImageObserver, MouseListener {
 					
 					g.setColor(Color.white);
 					
-					//g.fillRect(execution.columnWidth + 1 + execution.characterColumn * execution.columnWidth, execution.rowHeight + 1 + execution.rowHeight * execution.characterRow, execution.columnWidth - 2, execution.rowHeight - 2);
-					
 					int cellRow = xyFromCell[0];
 					
 					int cellColumn = xyFromCell[1];
@@ -634,8 +606,6 @@ public class AStarExecution implements ImageObserver, MouseListener {
 					execution.hunterCharacterRow = cellRow;
 					
 					execution.hunterCharacterColumn = cellColumn;
-					
-					//g.drawImage(execution.characterImage, execution.columnWidth + (execution.columnWidth * execution.characterColumn), execution.rowHeight + (execution.rowHeight * execution.characterRow), execution.columnWidth * 2 + (execution.columnWidth * execution.characterColumn),execution.rowHeight * 2 + (execution.rowHeight * execution.characterRow), 0,0, execution.characterImage.getWidth(), execution.characterImage.getHeight(), null);
 					
 					execution.mp.repaint();
 					
@@ -676,8 +646,6 @@ public class AStarExecution implements ImageObserver, MouseListener {
 					
 					g.setColor(Color.white);
 					
-					//g.fillRect(execution.columnWidth + 1 + execution.characterColumn * execution.columnWidth, execution.rowHeight + 1 + execution.rowHeight * execution.characterRow, execution.columnWidth - 2, execution.rowHeight - 2);
-					
 					int cellRow = xyFromCell[0];
 					
 					int cellColumn = xyFromCell[1];
@@ -685,8 +653,6 @@ public class AStarExecution implements ImageObserver, MouseListener {
 					execution.playerCharacterRow = cellRow;
 					
 					execution.playerCharacterColumn = cellColumn;
-					
-					//g.drawImage(execution.characterImage, execution.columnWidth + (execution.columnWidth * execution.characterColumn), execution.rowHeight + (execution.rowHeight * execution.characterRow), execution.columnWidth * 2 + (execution.columnWidth * execution.characterColumn),execution.rowHeight * 2 + (execution.rowHeight * execution.characterRow), 0,0, execution.characterImage.getWidth(), execution.characterImage.getHeight(), null);
 					
 					execution.mp.repaint();
 					

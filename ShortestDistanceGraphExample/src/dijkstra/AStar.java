@@ -9,8 +9,6 @@ public class AStar {
 	
 	public static double[][] distanceMatrix = new double[numberOfNodes][numberOfNodes];
 	
-	//static double[][] pathDistanceMatrix = new double[numberOfNodes][numberOfNodes];
-	
 	static double[] pathDistanceMatrix = new double[numberOfNodes];
 	
 	static boolean[] visited = new boolean[numberOfNodes];
@@ -38,8 +36,6 @@ public class AStar {
 		numberOfNodes = initNumberOfNodes;
 		
 		distanceMatrix = new double[numberOfNodes][numberOfNodes];
-		
-		//static double[][] pathDistanceMatrix = new double[numberOfNodes][numberOfNodes];
 		
 		pathDistanceMatrix = new double[numberOfNodes];
 		
@@ -161,16 +157,6 @@ public class AStar {
 			
 			this.previousNodes = Utilities.cloneIntArray(previousNodes);
 			
-			/*
-			previousNodes = new int[numberOfNodes];
-			
-			for(int rowCounter = 0; rowCounter < previousNodes.length; rowCounter++) {
-				
-				previousNodes[rowCounter] = -1;
-				
-			}
-			*/
-			
 			this.targetNodeIndex = targetNodeIndex;
 			
 			this.minimumDistance = minimumDistance;
@@ -194,11 +180,8 @@ public class AStar {
 	
 	public static int AStarAlgorithm(Node node) {
 		
-		//System.out.println("Dijkstra Algorithm: " + node.nodeIndex);
-		
 		if(node.nodeIndex == node.targetNodeIndex) {
 			
-			//node.minimumPath += "" + node.targetNodeIndex;
 			return -1;
 			
 		}
@@ -231,11 +214,7 @@ public class AStar {
 						
 						pathDistanceMatrix[neighborCounter] = newDistance;
 						
-						//System.out.println("Path Distance Matrix: " + pathDistanceMatrix[neighborCounter]);
-						
 						if(neighborCounter == node.targetNodeIndex) {
-							
-							//node.minimumPath += "" + node.targetNodeIndex;
 							
 							System.out.println("Complete Path: " + node.minimumPath + " : " + node.targetNodeIndex + " Minimum Path: " + newDistance);
 							
@@ -258,15 +237,12 @@ public class AStar {
 					if(!visited[neighborCounter]) {
 						
 						if(node.previousNodes[neighborCounter] == 0) {
-						//if(!Utilities.arrayContainsInt(node.previousNodes, neighborCounter)) {
 							
 							int[] nextNodePrevious = Utilities.cloneIntArray(node.previousNodes);
 							
 							nextNodePrevious[node.nodeIndex] = 1;
 							
 							Node nextNode = x.new Node(neighborCounter, node.nodeIndex, node.targetNodeIndex, Double.MAX_VALUE, newDistance, node.minimumPath + " : " + neighborCounter, nextNodePrevious);
-							
-							//int returnIndex = AStarAlgorithm(nextNode);
 							
 							System.out.println("Neighbor Counter: " + neighborCounter + " F Value: " + nextNode.f(nextNode));
 							
@@ -276,16 +252,12 @@ public class AStar {
 							
 							if(nextF < minimumNodePathDistance) {
 								
-								//if(pathDistanceMatrix[returnIndex] < minimumNodePathDistance) {
-									
 									minimumNodePathDistance = nextF;
 									
 									minimumNodeIndex = addedNodes;
 									
 									minimumPathString = nextNode.minimumPath;
 									
-								//}
-								
 							}
 							
 							addedNodes++;
@@ -338,11 +310,7 @@ public class AStar {
 			
 		}
 		
-		//visited[node.nodeIndex] = true;
-		
 		if(minimumNodeIndex >= 0) {
-			
-			//System.out.println("Minimum Node Index: " + minimumNodeIndex);
 			
 			int returnIndex = AStarAlgorithm(neighborNodes.get(minimumNodeIndex));
 			
@@ -395,8 +363,6 @@ public class AStar {
 	}
 	
 	public static void main(String[] args) {
-		
-		//distanceMatrix = Utilities.createDistanceMatrix3(distanceMatrix);
 		
 		x = new AStar(25, 3, 3, null);
 		
@@ -472,11 +438,7 @@ public class AStar {
 			System.out.println(cp);
 			
 		}
-		
-		//System.out.println(Arrays.toString(completePathArray));
-		
-		//System.out.println("My Best Path is: " + originalNode.minimumPath);
-		
+
 	}
 
 }

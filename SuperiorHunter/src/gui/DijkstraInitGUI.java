@@ -26,9 +26,6 @@ import javax.swing.JRadioButton;
 
 public class DijkstraInitGUI implements MouseListener {
 
-	//int numberRows = 100;
-	//int numberColumns = 100;
-	
 	static Color litColor = Color.black;
 	
 	static Color unlitColor = Color.white;
@@ -82,9 +79,7 @@ public class DijkstraInitGUI implements MouseListener {
 		JMenuItem runMenuItem = null;
 		
 		public MainWindow() {
-			
-			//System.out.println("Number Row Units: " + numberRowUnits + " Number Column Units: " + numberColumnUnits);
-			
+
 			setLayout(null);
 			
 			rootMenuBar = new JMenuBar();
@@ -151,11 +146,7 @@ public class DijkstraInitGUI implements MouseListener {
 			
 			if(arg0.getSource() == loadMenuItem) {
 				
-				//System.out.println("Load Menu Item!");
-				
 				copyBooleanToObject(loadFile());
-				
-				//JOptionPane.showMessageDialog(this, "File Loaded!");
 				
 				mp.repaint();
 			
@@ -204,17 +195,10 @@ public class DijkstraInitGUI implements MouseListener {
 							}
 							
 							if(aStarDisplay == null) {
-								//if(dijkstraDisplay == null) {
-									
-									//first run of the display window
-									
-									//dijkstraDisplay = new DijkstraExecution(characterImageFile, digui.rowHeight, digui.columnWidth, digui.displayGrid);
 									
 									aStarDisplay = new AStarExecution(characterImageFiles[0], characterImageFiles[1], digui.rowHeight, digui.columnWidth, digui.displayGrid);
 									
 								}else {
-									
-									//dijkstraDisplay = new DijkstraExecution(characterImageFile, digui.rowHeight, digui.columnWidth, digui.displayGrid);
 									
 									aStarDisplay = new AStarExecution(characterImageFiles[0], characterImageFiles[1], digui.rowHeight, digui.columnWidth, digui.displayGrid);
 									
@@ -230,20 +214,15 @@ public class DijkstraInitGUI implements MouseListener {
 								
 							}
 							
-							//if(aStarDisplay == null) {
 								if(dijkstraDisplay == null) {
 									
 									//first run of the display window
 									
 									dijkstraDisplay = new DijkstraExecution(characterImageFiles[0], digui.rowHeight, digui.columnWidth, digui.displayGrid);
 									
-									//aStarDisplay = new AStarExecution(characterImageFile, digui.rowHeight, digui.columnWidth, digui.displayGrid);
-									
 								}else {
 									
 									dijkstraDisplay = new DijkstraExecution(characterImageFiles[0], digui.rowHeight, digui.columnWidth, digui.displayGrid);
-									
-									//aStarDisplay = new AStarExecution(characterImageFile, digui.rowHeight, digui.columnWidth, digui.displayGrid);
 									
 								}
 							
@@ -340,8 +319,6 @@ public class DijkstraInitGUI implements MouseListener {
 						for(int lineBooleanArrayCounter = 0; lineBooleanArrayCounter < lineBooleanArray.length; lineBooleanArrayCounter++) {
 							
 							if(lineArray[lineBooleanArrayCounter].equals("1")) {
-								
-								//System.out.println("Got a plus value!");
 								
 								lineBooleanArray[lineBooleanArrayCounter] = true;
 								
@@ -462,8 +439,6 @@ public class DijkstraInitGUI implements MouseListener {
 			
 			super.paint(g);
 			
-			//System.out.println("Painting mp!");
-			
 			g.setColor(Color.white);
 			
 			g.fillRect(0, 0, digui.mainPanelWidth, digui.mainPanelHeight);
@@ -475,8 +450,6 @@ public class DijkstraInitGUI implements MouseListener {
 				for(int columnCounter = 0; columnCounter < digui.displayGrid[rowCounter].length; columnCounter++) {
 					
 					if(digui.displayGrid[rowCounter][columnCounter]) {
-						
-						//System.out.println("Red Color!");
 						
 						g.setColor(litColor);
 
@@ -512,14 +485,10 @@ public class DijkstraInitGUI implements MouseListener {
 					
 				}
 				
-				//System.out.println("Row Counter: " + rowCounter + " Column Counter: " + columnCounter);
-					
 				g.drawLine(digui.mainPanelWidth-digui.columnWidth, rowCounter, digui.mainPanelWidth - digui.columnWidth, rowCounter + digui.rowHeight);
 				
 			}
 			
-			//g.drawString("Hello World", 125, 125);
-
 		}
 		
 	}
@@ -533,18 +502,6 @@ public class DijkstraInitGUI implements MouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
-		
-		/*
-		int columnNumber = (arg0.getX()-columnWidth) / (columnWidth);
-		
-		int rowNumber = (arg0.getY()-rowHeight) / (rowHeight);
-		
-		//System.out.println("Mouse X Location: " + arg0.getX() + " : " + columnNumber + " Mouse Y Location: " + arg0.getY() + " : " + rowNumber);
-		
-		digui.displayGrid[rowNumber][columnNumber] = !digui.displayGrid[rowNumber][columnNumber];
-		
-		mw.repaint();
-		*/
 		
 	}
 
@@ -579,16 +536,6 @@ public class DijkstraInitGUI implements MouseListener {
 		System.out.println("Mouse X Location: " + arg0.getX() + " : " + columnNumber + " Mouse Y Location: " + arg0.getY() + " : " + rowNumber);
 		
 		digui.displayGrid[rowNumber][columnNumber] = !digui.displayGrid[rowNumber][columnNumber];
-		
-		/*
-		for(int rowCounter = 0; rowCounter < digui.displayGrid.length; rowCounter++) {
-			
-			System.out.println(Arrays.toString(digui.displayGrid[rowCounter]));
-			
-		}
-		
-		System.out.println("");
-		*/
 		
 		mw.repaint();
 		

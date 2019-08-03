@@ -6,9 +6,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class DijkstraGUI {
-
-	//int numberRows = 100;
-	//int numberColumns = 100;
 	
 	int rowHeight = 25;
 	
@@ -87,8 +84,6 @@ public class DijkstraGUI {
 				
 			}
 			
-			//g.drawString("Hello World", 125, 125);
-
 		}
 		
 	}

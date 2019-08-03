@@ -424,10 +424,6 @@ public class Utilities {
 		
 		int numberColumns = displayGrid[0].length;
 		
-		//execution.numberRows = numberRows;
-		
-		//execution.numberColumns = numberColumns;
-		
 		for(int rowCounter = 0; rowCounter < numberRows; rowCounter++) {
 			
 			for(int columnCounter = 0; columnCounter < numberColumns; columnCounter++) {
@@ -510,10 +506,6 @@ public class Utilities {
 		int numberRows = displayGrid.length;
 		
 		int numberColumns = displayGrid[0].length;
-		
-		//execution.numberRows = numberRows;
-		
-		//execution.numberColumns = numberColumns;
 		
 		for(int rowCounter = 0; rowCounter < numberRows; rowCounter++) {
 			
