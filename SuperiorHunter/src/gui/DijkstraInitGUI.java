@@ -72,6 +72,10 @@ public class DijkstraInitGUI implements MouseListener {
 		
 		JMenu fileMenu = null;
 		
+		JMenu helpMenu = null;
+		
+		JMenuItem helpMenuItem = null;
+		
 		JMenuItem loadMenuItem = null;
 		
 		JMenuItem saveMenuItem = null;
@@ -86,6 +90,12 @@ public class DijkstraInitGUI implements MouseListener {
 			
 			fileMenu = new JMenu("File");
 			
+			helpMenu = new JMenu("Help");
+			
+			helpMenuItem = new JMenuItem("Help");
+			
+			helpMenuItem.addActionListener(this);
+			
 			loadMenuItem = new JMenuItem("Load");
 			
 			loadMenuItem.addActionListener(this);
@@ -97,6 +107,8 @@ public class DijkstraInitGUI implements MouseListener {
 			runMenuItem = new JMenuItem("Run");
 			
 			runMenuItem.addActionListener(this);
+
+			helpMenu.add(helpMenuItem);
 			
 			fileMenu.add(loadMenuItem);
 			
@@ -105,6 +117,8 @@ public class DijkstraInitGUI implements MouseListener {
 			fileMenu.add(runMenuItem);
 			
 			rootMenuBar.add(fileMenu);
+			
+			rootMenuBar.add(helpMenu);
 			
 			setJMenuBar(rootMenuBar);
 			
@@ -137,6 +151,8 @@ public class DijkstraInitGUI implements MouseListener {
 			setDefaultCloseOperation(EXIT_ON_CLOSE);
 			
 			setVisible(true);
+			
+			InstructionFrame instructionFrame = new InstructionFrame( );
 			
 		}
 
@@ -235,6 +251,10 @@ public class DijkstraInitGUI implements MouseListener {
 					e.printStackTrace();
 					
 				}
+				
+			}else if( arg0.getSource() == helpMenuItem ) {
+				
+				InstructionFrame instructionFrame = new InstructionFrame( );
 				
 			}
 			
